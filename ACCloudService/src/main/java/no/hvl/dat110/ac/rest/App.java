@@ -10,6 +10,7 @@ import static spark.Spark.delete;
 import com.google.gson.Gson;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 
 /**
  * Hello world!
@@ -77,8 +78,18 @@ public class App {
 			return gson.toJson(newAccesscode.getAccesscode());
 		});
 		get("/accessdevice/code", (req, res) -> {
+			//fikk ikke til å få fromJson toJson uten å fikse strengen manuelt, så ser forferdelig ut, men funker
 			Gson gson = new Gson();
-			return gson.toJson(accesscode.getAccesscode());
+			String kode = "";
+			for (int i = 0; i < accesscode.getAccesscode().length; i++) {
+				kode += accesscode.getAccesscode()[i] + ",";
+			}
+			kode = kode.substring(0, kode.length() - 1);
+			String jsonString = "{\"accesscode\": [" + kode + "]}";
+
+			AccessCode accessCode = gson.fromJson(jsonString, AccessCode.class);
+			res.body(gson.toJson(accessCode));
+			return gson.toJson(accessCode);
 		});
 		delete("/accessdevice/log/", ((request, response) -> {
 			accesslog.clear();
