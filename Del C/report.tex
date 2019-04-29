@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+
+\usepackage{a4wide}
+\usepackage{mathptm}
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usetikzlibrary{shapes.misc, positioning}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\begin{document}
+
+\title{DAT110 Oblig 4 Del A-C}
+
+\author{Joakim Johesan og Eirik Alvestad}
+
+\maketitle
+
+\begin{abstract}
+Et arduinobasert cloud IoT adgangskontroll system. Skrevet ved hjelp av TinkerCad, Spark rammeverket og Gson. Fungerer med et REST API mot cloud servicen fra IoT devicet. 
+\end{abstract}
+
+\input{./sections/introduction}
+
+\input{./sections/ACDM}
+
+\input{./sections/ACHS}
+
+\input{./sections/RESTAPIcloudservice}
+
+\input{./sections/DeviceCommunication}
+
+\input{./sections/SystemTesting}
+
+\input{./sections/Conclusions}
+
+\bibliographystyle{plain}
+\bibliography{report.bib}{}
+
+\end{document}
