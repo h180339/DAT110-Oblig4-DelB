@@ -1,6 +1,12 @@
 \section{Introduction}
 \label{sec:introduction}
+Arduino designet finnes her:  https://www.tinkercad.com/things/kvRdZLvI430 \\
+Hele Oblig 4 finnes her: https://github.com/h180339/DAT110-Oblig4-DelB\\
 
-Approximately 1 page on:
+Systemet består av en simulert Arduino, en Java simulert Arduino, og en Java Spark tjenerapplikasjon. Arduinoen er programmert og satt opp til å være en enkel adgangskontrollenhet. Den kan låses opp om det trykkes inn riktig kode på knappene. Og vil så etter en satt tid gå tilbake til låst automatisk. 
 
-(~1/4 page) given an overall description of the system that has been developed. The introduction should also give a reference to where your TinkerCAD design (Part A) and device and service implementation (Part B) can be found.
+Tjenerapplikasjonen tilbyr et REST API for IoT devicer som kan lagre og hente informasjon fra clouden. Dette oppnår vi med å bruke HTTP protokollens GET og POST operasjoner for å sende Json meldinger. Vi bruker Spark rammeverket for å lage enkle "servlets" som behandler innkommende HTTP requests. 
+
+Arduinoen er koblet opp med en PIR detektor, 2 impuls knapper og 3 status dioder. Denne er simulert i både TinkerCad og Java, dette er fordi TinkerCad ikke tilbyr nettverksfunksjonalitet for den. Derfor er implementasjonen i Java den som blir brukt mot Cloud tjenesten. Koden her sender enkle HTTP requests til tjeneren for å logge, samt henter ned nye tilgangskoder som er satt.
+
+\pagebreak
