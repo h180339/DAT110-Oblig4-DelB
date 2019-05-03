@@ -1,12 +1,12 @@
 \section{Introduction}
 \label{sec:introduction}
-Arduino designet finnes her:  https://www.tinkercad.com/things/kvRdZLvI430 \\
-Hele Oblig 4 finnes her: https://github.com/h180339/DAT110-Oblig4-DelB\\
+The Arduino design is here:  https://www.tinkercad.com/things/kvRdZLvI430 \\
+All of the Oblig 4 is here: https://github.com/h180339/DAT110-Oblig4-DelB\\
 
-Systemet består av en simulert Arduino, en Java simulert Arduino, og en Java Spark tjenerapplikasjon. Arduinoen er programmert og satt opp til å være en enkel adgangskontrollenhet. Den kan låses opp om det trykkes inn riktig kode på knappene. Og vil så etter en satt tid gå tilbake til låst automatisk. 
+The system consists of a simple Arduino unit, a Java Spark cloud service providing a REST API to be accessed by IoT devices, and a simulated Arduino in Java. The Arduino unit is programmed to act as a simple access control system. It is unlocked by pressing the right combination of the two input buttons. After being unlocked for a while it will go back to being locked.\\
 
-Tjenerapplikasjonen tilbyr et REST API for IoT devicer som kan lagre og hente informasjon fra clouden. Dette oppnår vi med å bruke HTTP protokollens GET og POST operasjoner for å sende Json meldinger. Vi bruker Spark rammeverket for å lage enkle "servlets" som behandler innkommende HTTP requests. 
+The cloud service works by providing a message based REST API that enables IoT devices to save access logs and retrieve updated access code information. The device does this by connecting to the cloud service by using the HTTP protocol and sending HTTP GET, or POST requests. The messages it exchanges with the server are all serialized as JSON objects. We used the Spark framework to create simple "servlets" that manage the incoming HTTP requests on the cloud service.\\
 
-Arduinoen er koblet opp med en PIR detektor, 2 impuls knapper og 3 status dioder. Denne er simulert i både TinkerCad og Java, dette er fordi TinkerCad ikke tilbyr nettverksfunksjonalitet for den. Derfor er implementasjonen i Java den som blir brukt mot Cloud tjenesten. Koden her sender enkle HTTP requests til tjeneren for å logge, samt henter ned nye tilgangskoder som er satt.
+The Arduino is connected with a PIR detector, two input buttons, and 3 status LEDs. The design was made and simulated in TinkerCad and Java.
 
 \pagebreak
