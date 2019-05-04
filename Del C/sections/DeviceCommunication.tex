@@ -2,3 +2,11 @@
 \label{sec:prototype}
 
 Device Communication (~1 page) explaining how you have implemented the network communication in the access control device, i.e., the HTTP GET and POST operations on the virtual IoT device.
+
+We implemented the network communication in the access control device by using some of the services implemented in the cloud service.
+The first task was to implement a way for the device to obtain the current access code. We did this by establishing a connection to the cloud-service and issue the appropriate HTTP GET request.
+For this we used java socket to establish a connection to the cloud-service. We then constructed the get request consisting of the URL that matches the cloud-service route that returns the current access code, and write it to the ouput stream. We then take the response and iterate through it to get the body of the response, create a AccessCode object using the Gson-library and return that object.
+
+The second task was to implement a way for the device to  issue a HTTP POST request on the service in order to add a log access entry for the message.
+For this we used java socket again to establish a connection to the cloud-service. When using the cloud service it required us to create a post request where the body consists of a json represented object, we did this by first creting a java AccessMessage object from the parameter message, and convert it to a json representation using the Gson-library. We then constructed the post request consisting of the URL that matches the cloud-service route that allows us to save a message to the hashmap. We  put the json representation of the message in the body of the request and wrote to the outputstream.
+   
