@@ -1,12 +1,9 @@
 \section{REST API cloud service}
-\label{sec:experiments}
-
-(~1.5 page) explaining how you have implemented the cloud service using the Spark/Java framework. It should briefly explain how you have setup the routes in the service, how you have implemented the storage of access codes and the access log, and how you have used Gson.
-
-
 We implemented the cloud service using the spark/java framework, which makes it easy to implement a REST api.
 We used the framework so that the cloud service makes it possible for the access control device to register attempts to access the system in an access log, and to be able to change the access code and retrieve the current access code.
-The task was well written and we set up the routes the way the task specified. The routes was set up using the spark framework which allows us to specify the operation type (get, post, put, etc..) and the url in a easy way.
+The task was well written and we set up the routes the way the task specified. \\
+
+The routes was set up using the spark framework which allows us to specify the operation type (get, post, put, etc..) and the url in a easy way.
 The access attempts is collected in memory, which means that the information is only stored for as long as the program is running. Each log message received via the POST HTTP operation is given a unique identifier. We used a Concurrent HashMap for storing the log-messages received from the device and an Atomic Integer for keeping track of the identifier like the task suggested. The hash-map uses the identifier as the key for the log-message.
 Like the task specified we used the Gson-library. We used two of the methods of this library(toJson, fromJson).
 toJson: converts a java object into a Json representation
